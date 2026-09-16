@@ -1,0 +1,81 @@
+{
+  "name": "shadcn-ui-next",
+  "displayName": "shadcn/next",
+  "publisher": "Mishenko28",
+  "author": "John Thomas T. Alog",
+  "description": "Simply import and use shadcn-ui components in your project",
+  "icon": "dist/icon.png",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.4.9"
+  },
+  "scripts": {
+    "generate": "rm -rf ./dist/ && bun src/scripts/generate.ts && cp ./src/extras/* ./dist/ && cp ./src/images/* ./dist/ && bunx prettier --write ./dist/*.code-snippets",
+    "publish": "bun run generate && vsce publish",
+    "format": "prettier --write ."
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "keywords": [
+    "javascript snippets",
+    "nextjs snippets",
+    "react snippets",
+    "shadcn ui snippet",
+    "shadcn ui snippets",
+    "shadcn ui",
+    "shadcn",
+    "shadcn/ui",
+    "shadcnui",
+    "snippet",
+    "snippets",
+    "typescript snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascriptreact",
+        "path": "./dist/import.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./dist/import.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./dist/usage.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./dist/usage.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./dist/help.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./dist/help.code-snippets"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./dist/pages.code-snippets"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./dist/pages.code-snippets"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mishenko28/shadcn-ui-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/Mishenko28/shadcn-ui-snippets/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.2",
+    "@vscode/vsce": "^3.9.2"
+  }
+}
