@@ -10,8 +10,9 @@
     "vscode": "^1.4.9"
   },
   "scripts": {
-    "generate": "rm -rf ./dist/ && bun src/scripts/generate.ts && cp ./src/extras/* ./dist/ && cp ./src/images/* ./dist/ && bunx prettier --write ./dist/*.code-snippets",
-    "publish": "bun run generate && vsce publish",
+    "typecheck": "tsc --noEmit",
+    "generate": "typecheck && rm -rf ./dist/ && bun src/scripts/generate.ts && cp ./src/images/* ./dist/ && bunx prettier --write ./dist/*.code-snippets",
+    "publish": "typecheck && bun run generate && vsce publish",
     "format": "prettier --write ."
   },
   "categories": [
@@ -75,7 +76,8 @@
     "url": "https://github.com/Mishenko28/shadcn-ui-snippets/issues"
   },
   "devDependencies": {
-    "@types/node": "^22.15.2",
-    "@vscode/vsce": "^3.9.2"
+    "@types/node": "^22.20.3",
+    "@vscode/vsce": "^3.9.2",
+    "typescript": "^7.0.2"
   }
 }
