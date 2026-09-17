@@ -11,8 +11,8 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "generate": "typecheck && rm -rf ./dist/ && bun src/scripts/generate.ts && cp ./src/images/* ./dist/ && bunx prettier --write ./dist/*.code-snippets",
-    "publish": "typecheck && bun run generate && vsce publish",
+    "generate": "npm run typecheck && rimraf ./dist && bun src/scripts/generate.ts && shx cp ./src/images/* ./dist/ && bunx prettier --write ./dist/*.code-snippets",
+    "publish": "npm run typecheck && bun run generate && vsce publish",
     "format": "prettier --write ."
   },
   "categories": [
@@ -78,6 +78,8 @@
   "devDependencies": {
     "@types/node": "^22.20.3",
     "@vscode/vsce": "^3.9.2",
+    "rimraf": "^6.1.3",
+    "shx": "^0.4.0",
     "typescript": "^7.0.2"
   }
 }
